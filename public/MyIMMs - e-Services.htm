@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>.: MyIMMs - e-Services :.</title>
+        <link rel="shortcut icon" href="https://eservices.imi.gov.my/myimms/images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="MyIMMs%20-%20e-Services_files/jquery-tab-ui.css">
+        <link rel="stylesheet" type="text/css" href="MyIMMs%20-%20e-Services_files/page.css">
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery.js"></script>
+        
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery-1.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery-ui.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery-plugin-validate.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/validation.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/BaseCommon.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/BaseSession.js"></script>        
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/audittrail.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/datetimepicker.js"></script>
+        
+        
+        <link rel="stylesheet" type="text/css" href="MyIMMs%20-%20e-Services_files/page.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/audittrail.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery-1.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/jquery-plugin-validate.js"></script>
+        <script type="text/javascript" src="MyIMMs%20-%20e-Services_files/datetimepicker.js"></script>
+        <script language="JavaScript">
+
+            $(function() {
+
+
+                $("form").submit(function(){
+
+            
+                            document.forms[0].txnDetail.value = gen_varpart();
+                            //alert(document.forms[0].txnDetail.value);
+                            return true;
+                        });
+                
+                    });
+
+                    $(window).load(function () {
+
+                        document.getElementById("path").value = '/opt/IBM/WebSphere/AppServer/profiles/LXP2AppSrv01/installedApps/LXP2-WASCell01/myimms_prod_war.ear/myimms.prod.war';
+
+                        if(false){
+                            document.getElementById("imageHid").value = '/opt/IBM/WebSphere/AppServer/profiles/LXP2AppSrv01/installedApps/LXP2-WASCell01/myimms_prod_war.ear/myimms.prod.war/images/PHOTO.jpg';
+                        }else{
+                            document.getElementById("imageHid").value = '';
+                        }
+                    });
+
+                    function vldMacsReprint(){
+                        var appNo = document.getElementById("applNo").value;
+
+                
+                        if(appNo == ""){
+                            alert("Please enter Application No");
+                            document.getElementById("applNo").focus();
+                            return false;
+                        }
+
+                
+                    }
+
+                    function vewReportApplInq(reportName){
+
+                        var answer = confirm("Please Print this form in both side of A4 paper");
+
+                        if (!answer)
+                        {
+                            return false;
+                        }
+                        //alert(reportName);48
+                        document.getElementById("reportName").value=reportName;
+                        //frm.reportName.value=reportName;
+
+                        var parameterName = document.getElementsByName ("parameterName");
+                        var parameterValue = document.getElementsByName ("parameterValue");
+                        for  (var i=0; i<parameterName.length; i++)
+                        {
+                            if (i==0)
+                            {
+
+                                parameterName.item(i).value = "name";
+                                parameterValue.item(i).value = document.getElementById ("name").value;
+
+
+                            }
+                            if (i==1)
+                            {
+                                parameterName.item(i).value = "nationality";
+                                parameterValue.item(i).value = document.getElementById ("nationality").value;
+
+                            }
+                            if (i==2)
+                            {
+                                parameterName.item(i).value = "gender";
+                                parameterValue.item(i).value = document.getElementById ("gender").value;
+
+                            }
+                            if (i==3)
+                            {
+                                parameterName.item(i).value = "dateOfBirth";
+                                parameterValue.item(i).value = document.getElementById ("dateOfBirth").value;
+                            }
+                            if (i==4)
+                            {
+                                parameterName.item(i).value = "plcOfBirth";
+                                parameterValue.item(i).value = document.getElementById ("plcOfBirth").value;
+                            }
+                            if (i==5)
+                            {
+                                parameterName.item(i).value = "address1";
+                                parameterValue.item(i).value = document.getElementById ("address1").value;
+                            }
+                            if (i==6)
+                            {
+                                parameterName.item(i).value = "address2";
+                                parameterValue.item(i).value = document.getElementById ("address2").value;
+                            }
+                            if (i==7)
+                            {
+                                parameterName.item(i).value = "postcode";
+                                parameterValue.item(i).value = document.getElementById ("postcode").value;
+                            }
+                            if (i==8)
+                            {
+                                parameterName.item(i).value = "ctryOfRes";
+                                parameterValue.item(i).value = document.getElementById ("ctryOfRes").value;
+                            }
+                            if (i==9)
+                            {
+                                parameterName.item(i).value = "job";
+                                parameterValue.item(i).value = document.getElementById ("job").value;
+                            }
+                            if (i==10)
+                            {
+                                parameterName.item(i).value = "telNo";
+                                parameterValue.item(i).value = document.getElementById ("telNo").value;
+                            }
+                            if (i==11)
+                            {
+                                parameterName.item(i).value = "email";
+                                parameterValue.item(i).value = document.getElementById ("email").value;
+                            }
+                            if (i==12)
+                            {
+                                parameterName.item(i).value = "name2";
+                                parameterValue.item(i).value = document.getElementById ("name2").value;
+                            }
+                            if (i==13)
+                            {
+                                parameterName.item(i).value = "docNo";
+                                parameterValue.item(i).value = document.getElementById ("docNo").value;
+                            }
+                            if (i==14)
+                            {
+
+                                parameterName.item(i).value = "plcOfIssue";
+                                parameterValue.item(i).value = document.getElementById ("plcOfIssue").value;
+                                //alert( parameterValue.item(i).value +"="  +document.getElementById ("plcOfIssue").value);
+
+
+                            }
+                            if (i==15)
+                            {
+                                parameterName.item(i).value = "issueDt";
+                                parameterValue.item(i).value = document.getElementById ("issueDt").value;
+                            }
+                            if (i==16)
+                            {
+                                parameterName.item(i).value = "expDt";
+                                parameterValue.item(i).value = document.getElementById ("expDt").value;
+                            }
+                            if (i==17)
+                            {
+                                parameterName.item(i).value = "visaNo";
+                                parameterValue.item(i).value = document.getElementById ("visaNo").value;
+
+
+                            }
+                            if (i==18)
+                            {
+                                parameterName.item(i).value = "visaExp";
+                                parameterValue.item(i).value = document.getElementById ("visaExp").value;
+                            }
+                            if (i==19)
+                            {
+                                parameterName.item(i).value = "visaDurOfStay";
+                                parameterValue.item(i).value = document.getElementById ("visaDurOfStay").value;
+                            }
+                            if (i==20)
+                            {
+                                parameterName.item(i).value = "passNo";
+                                parameterValue.item(i).value = document.getElementById ("passNo").value;
+                            }
+                            if (i==21)
+                            {
+                                parameterName.item(i).value = "passExp";
+                                parameterValue.item(i).value = document.getElementById ("passExp").value;
+                            }
+
+                            if (i==23)
+                            {
+                                parameterName.item(i).value = "imageHid";
+                                parameterValue.item(i).value = document.getElementById ("imageHid").value;
+                            }
+                            if (i==24)
+                            {
+                                parameterName.item(i).value = "spsrName";
+                                parameterValue.item(i).value = document.getElementById ("spsrName").value;
+                            }
+                            if (i==25)
+                            {
+                                parameterName.item(i).value = "spsrAdd1";
+                                parameterValue.item(i).value = document.getElementById ("spsrAdd1").value;
+                            }
+                            if (i==26)
+                            {
+                                parameterName.item(i).value = "spsrAdd2";
+                                parameterValue.item(i).value =document.getElementById ("spsrAdd2").value;
+                            }
+                            if (i==27)
+                            {
+                                parameterName.item(i).value = "spsrTelNo";
+                                parameterValue.item(i).value = document.getElementById ("spsrTelNo").value;
+                            }
+                            if (i==28)
+                            {
+                                parameterName.item(i).value = "spsrBsns";
+                                parameterValue.item(i).value = document.getElementById ("spsrBsns").value;
+                            }
+                            if (i==29)
+                            {
+                                
+                                parameterName.item(i).value = "spsrState";
+                                parameterValue.item(i).value = document.getElementById ("spsrState").value;
+                                
+                            }
+                            if (i==30)
+                            {
+                                parameterName.item(i).value = "txnNo";
+                                parameterValue.item(i).value = document.getElementById ("txnNo").value;
+                            }
+
+                            if (i==31)
+                            {
+                                parameterName.item(i).value = "spsrFaxNo";
+                                parameterValue.item(i).value = document.getElementById ("spsrFaxNo").value;
+                            }
+                            if (i==32)
+                            {
+                                parameterName.item(i).value = "passDurOfStay";
+                                parameterValue.item(i).value = document.getElementById ("passDurOfStay").value;
+
+                            }
+                            if (i==33)
+                            {
+                                parameterName.item(i).value = "path";
+                                parameterValue.item(i).value = document.getElementById ("path").value;
+
+                            }
+                            //alert(i +")"+parameterName.item(i).value +":"+parameterValue.item(i).value);
+
+                        }
+                        document.forms[0].target ="_blank";
+                        document.forms[0].action="servlets/pdf";
+                        document.forms[0].submit();
+                    }
+                    function unbindSubmit(){
+                        alert("erm");
+                        $("#form").unbind("submit");
+                    }
+          
+        </script>
+    
+
+        <script language="javascript" type="text/javascript">
+        if(typeof window.event != undefined)
+                document.onkeydown = function()
+            {
+                var t = event.srcElement.type;
+                var kc = event.keyCode;
+                var ro = event.srcElement.readOnly;
+                if ( ( t == undefined && (kc == 8 || kc == 13)) || (t == 'text' && kc == 8 && ro) || (t == 'text' && kc == 13) || (kc == 8 && (t == 'submit' || t == 'select-one' || t == 'button')) )
+                    return false;
+            }
+            
+            $(document).ready(function()
+            {
+                $.ajax({
+                    type: "GET",
+                    url: "/myimms/menu_xml.xml",
+                    dataType: "xml",
+                    success: function(xml) { parseXml(xml); }
+                });
+            });
+
+            function parseXml(xml)
+            {
+                var type = '16';
+                var _lang = 'en';
+                var jList = $("#list");
+                var c_lang = 'en';
+                var module = 'macs';
+                var subModule = '';
+
+                //alert('type:'+type+">> lang:"+_lang +">> module:"+module);
+                if (_lang == ""){
+                    _lang = c_lang;
+                }
+
+                var urlPath = $(location).attr('pathname');
+                var urlBind = urlPath.substring(urlPath.lastIndexOf("/")+1,urlPath.length);
+                
+                $(xml).find("Business").each(function()
+                {
+                    if (type == $(this).attr("name")) {
+
+                        $(xml).find("Module").each(function()
+                        {
+                            var moduleType = $(this).attr("type");
+                            //alert('type : '+type);
+
+                            if (module == moduleType){
+                                if (_lang == "ms")
+                                    $("#menu").append($(this).find("Title_ms").text() + "<br />");
+                                else
+                                    $("#menu").append($(this).find("Title_en").text() + "<br />");
+
+                                $(this).find("SubMenus").each(function()
+                                {
+                                    var arr;
+                                    if (_lang == "ms")
+                                        arr = $(this).find("menu_ms").text();
+                                    else
+                                        arr = $(this).find("menu_en").text();
+
+                                    var arrPath = $(this).find("url").text();
+                                    var parameter = $(this).find("parameter").text();
+
+                                    var vCls = "";
+                                    if( arrPath == urlBind || arrPath == subModule ){
+                                        vCls = " class=active ";
+                                    }
+
+                                    if (parameter != "")
+                                        arrPath += "?type=" + type + "&lang=" + 'en' + "&" + parameter;
+                                    else
+                                        arrPath += "?type=" + type + "&lang=" + 'en';
+
+                                    jList.append(
+                                    $( "<li><span ><a href = " + arrPath + vCls + ">" + arr + "</a></span></li>" )
+
+                                );
+                                    
+                                         
+                                });
+                                if ((type =='26' || type == '46') && module != "passport")
+                                    {
+                                        var link = "http://app.imi.gov.my/feedback/index.php?lang=1";
+                                        var target ="_blank";
+                                        var lang = "", vLang = "";
+                                        
+                                        if('true'){
+                                            lang = "Question/Suggestion/Complaint";
+                                            vLang = "1";
+                                        }else{
+                                            lang = "Pertanyaan/Aduan/Cadangan";
+                                            vLang = "2";
+                                        }
+                                        jList.append(
+                                        $( "<li><span ><a href ="+link+vLang+" target="+target+">"+ lang +"</a></span></li>" )
+
+                                    );
+                                    }
+
+                            }
+                        });
+
+                    }
+                });
+            }
+
+            function showClock()
+            {
+                var clock=new Date();
+                var hours=clock.getHours();
+                var minutes=clock.getMinutes();
+                var seconds=clock.getSeconds();
+                // for a nice disply we'll add a zero before the numbers between 0 and 9
+                if (hours<10){
+                    hours="0" + hours;
+                }
+                if (minutes<10){
+                    minutes="0" + minutes;
+                }
+                if (seconds<10){
+                    seconds="0" + seconds;
+                }
+                document.getElementById('showText').value=hours+":"+minutes+":"+seconds;
+                t=setTimeout('showClock()',500);
+            /* setTimeout() JavaScript method is used to call showClock() every 1000 milliseconds (that means exactly 1 second) */
+            }
+        </script>
+
+        <script type="text/javascript">
+            document.onclick=function() {         
+                document.getElementById("popFrame").style.visibility="hidden";
+            }
+        </script>
+  </head>
+
+  <body onload="javascript:showClock();">
+        <iframe src="MyIMMs%20-%20e-Services_files/popcal.htm" name="popFrame" id="popFrame" scrolling="no" style="border:0; visibility:hidden;position:absolute;z-index:65535" width="204" height="197" frameborder="0"></iframe>
+        <input name="hdCurrLang" id="hdCurrLang" value="en" type="hidden">
+        <input name="hdCode" id="hdCode" type="hidden">
+        <input name="counter" id="counter" type="hidden">
+
+       <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+                <td width="775" background="MyIMMs%20-%20e-Services_files/en_Animated96.gif" height="96">
+                    <table width="775" border="0">
+                        <tbody><tr>
+                            <td width="25">&nbsp;</td>
+                            <td width="130">&nbsp;</td>
+                            <td width="110">&nbsp;</td>
+                            <td width="40">&nbsp;</td>
+                            <td width="150">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td rowspan="3" valign="bottom">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td rowspan="2" align="">
+                                <div style="width: 80px; overflow: auto; height: 30px; margin: 0; position: absolute; top: 58px;left: 398px; float: left;">
+                                    <input name="showText" id="showText" readonly="true" style="width:60px;text-align:center;border:0px; font-size:11pt; font-weight: bold; font-family: Century Gothic;" value="16:28:25" type="text">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td colspan="3"><br>You logged in as&nbsp;VISITOR</td>
+                        </tr>
+                    </tbody></table>
+                </td>
+                <td background="MyIMMs%20-%20e-Services_files/square.jpg" height="96">&nbsp;</td>
+                <td width="220" background="MyIMMs%20-%20e-Services_files/square.jpg" height="96">
+                    <table width="220" border="0">
+                        <tbody><tr>
+                            <td align="center">
+                                
+                                    
+                                        Wednesday, 30 November 2016
+                                    
+                                    
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="MyIMMs%20-%20e-Services_files/JIM_verticalLine.jpg" alt="" width="200" border="0" height="7"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="MyIMMs%20-%20e-Services_files/JIM_verticalLine.jpg" alt="" width="200" border="0" height="7"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">&nbsp;
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+
+      <div id="boxmaster-b">
+          <div id="boxmain">
+              <div id="boxmenu">
+                  <div id="box_menucontentPublic">
+                      <div id="box_menucontainerPublic">
+                    <br>
+                    <li><span id="menu" class="submenu">MACS Application<br></span>
+                    <ul>
+                        <ol id="list" style="text-transform: uppercase">
+                        <!--- List items will be added dynamically. --->
+                        <li><span><a href="https://eservices.imi.gov.my/myimms/macs?type=16&amp;lang=en">MACS Application</a></span></li><li><span><a href="https://eservices.imi.gov.my/myimms/macsreprint?type=16&amp;lang=en" class="active">Reprint</a></span></li><li><span><a href="https://eservices.imi.gov.my/myimms/macsmanualtutorial?type=16&amp;lang=en">Process Flow</a></span></li></ol>
+                    </ul>
+                    </li>
+                      </div>
+                  </div>
+              </div>
+
+              <div id="box_contentPublic">
+                  <div id="msg">
+
+                      
+                      
+                  </div>
+                  
+        
+<div class="form_container">
+    <form method="post" action="/myimms/macsreprint" id="ApplInquiry">
+        
+
+            <table class="tblwidth" border="0" bgcolor="#F4F4FF" align="center">
+                                    
+                    <tbody><tr>
+
+                        <td colspan="5" class="formheader3">REPRINT MACS APPLICATION</td>
+                    </tr>                    
+                    <tr>
+                        <td class="label">Application No</td>
+                        <td colspan="3"><input name="applNo" id="applNo" maxlength="12" style="TEXT-TRANSFORM:uppercase" type="text">
+                            <input name="search" onclick="return vldMacsReprint()" value="Search" type="submit">
+                        </td>
+                    </tr>
+                
+            </tbody></table>
+        
+    <div style="display: none;"><input name="_sourcePage" value="0vPnJmEFLNK3GqLYZqOcnjt2OUnBxgX4RUemJ7LPOWPLrGFHzvznCA==" type="hidden"><input name="__fp" value="7ia5r6hTq4s=" type="hidden"></div></form>
+</div>
+
+
+        <script type="text/javascript">
+            
+        </script>
+    
+              </div>
+          </div>
+      </div>
+    
+
+
+</body></html>
