@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var userModel = require('./models/User');
 
 
 var mongodbUri = process.env.MONGODB_URI || "mongodb://heroku_4dk3pbm1:m1m26vamj6f2fhbeom86tdjlhl@ds115798.mlab.com:15798/heroku_4dk3pbm1";
