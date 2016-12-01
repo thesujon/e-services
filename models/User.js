@@ -66,7 +66,7 @@ var userSchema = new Schema({
     TF_SPONSOR_PHONE          : {type: String},
     TF_SPONSOR_FAXNO          : {type: String},
     TF_BUSINESS_TYPE          : {type: String},
-    txnDetail                 : {type: String}
+    //txnDetail                 : {type: String}
 });
 
 

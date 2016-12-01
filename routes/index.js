@@ -12,9 +12,37 @@ router.get('/', function (req, res, next) {
 });
 
 
+
+router.get('/reprint', function (req, res, next) {
+    res.render('findApplicant', {title: 'REPRINT MACS APPLICATION'});
+});
+
+
+router.get('/findApplicant/:APPLNO', function (req, res, next) {
+
+    var APPLNO = req.params.APPLNO;
+    if (!APPLNO){
+          res.status(400);
+        res.json({message: 'Invalid app no.'});
+        return
+    }
+    userModel.findOne({ APPLNO : APPLNO}).lean().exec().then(function (user) {
+        if (user){
+            res.json(user);
+        } else {
+            res.status(400);
+            res.json({message: 'No applicant found for the '+ APPLNO});
+        }
+
+    }, function (err) {
+        console.log(err);
+        res.status(400);
+        res.json({message: 'Unable to save form data due to an unexpected error.'});
+    });
+});
+
 router.post('/myimms/macs', upload.single('file'), function (req, res, next) {
 
-    console.log(req.body);
     var newUser = req.body;
     var appCounter = 1;
     appCounterModel.findOne({}).then(function (counterData) {
@@ -40,7 +68,7 @@ router.post('/myimms/macs', upload.single('file'), function (req, res, next) {
     function saveApplication() {
         newUser.APPLNO = ["EGBRJ", _.padStart(appCounter, 5, '0')].join('');
         userModel.create(newUser).then(function (user) {
-            res.render('success', {message: "Application is saved successfully your application id is " + user.APPLNO});
+            res.render('serviceApllication', {message: "Application is saved successfully your application id is " + user.APPLNO, USER_APPLNO: user.APPLNO });
         }, function (err) {
             console.log(err);
             res.render('serviceForm', {message: 'Unable to save form data due to an unexpected error.'});
