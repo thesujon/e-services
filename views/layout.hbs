@@ -3,8 +3,146 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link rel="shortcut icon" href="https://eservices.imi.gov.my/ServicesFormfiles/favicon.ico">
+      <link rel="stylesheet" type="text/css" href="/ServicesFormfiles/jquery-tab-ui.css">
+      <link rel="stylesheet" type="text/css" href="/ServicesFormfiles/page.css">
+      <script type="text/javascript" src="/ServicesFormfiles/jquery.js"></script>
+
+      <script type="text/javascript" src="/ServicesFormfiles/jquery-1.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/jquery-ui.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/jquery-plugin-validate.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/validation.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/BaseCommon.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/BaseSession.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/audittrail.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/datetimepicker.js"></script>
+
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <link rel="stylesheet" type="text/css" href="/ServicesFormfiles/page.css">
+      <script type="text/javascript" src="/ServicesFormfiles/paging.js"></script><!--paging-->
+      <script type="text/javascript" src="/ServicesFormfiles/jquery-1.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/jquery-plugin-validate.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/datetimepicker.js"></script>
+      <script type="text/javascript" src="/ServicesFormfiles/validation.js"></script>
   </head>
   <body>
-    {{{body}}}
+
+
+  <iframe src="/ServicesFormfiles/popcal.htm" name="popFrame" id="popFrame" scrolling="no" style="border:0; visibility:hidden;position:absolute;z-index:65535" width="204" height="197" frameborder="0"></iframe>
+  <input name="hdCurrLang" id="hdCurrLang" value="en" type="hidden">
+  <input name="hdCode" id="hdCode" type="hidden">
+  <input name="counter" id="counter" type="hidden">
+
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+          <td width="775" background="/ServicesFormfiles/en_Animated96.gif" height="96">
+              <table width="775" border="0">
+                  <tbody><tr>
+                      <td width="25">&nbsp;</td>
+                      <td width="130">&nbsp;</td>
+                      <td width="110">&nbsp;</td>
+                      <td width="40">&nbsp;</td>
+                      <td width="150">&nbsp;</td>
+                      <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td rowspan="3" valign="bottom">
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td rowspan="2" align="">
+                          <div style="width: 80px; overflow: auto; height: 30px; margin: 0; position: absolute; top: 58px;left: 398px; float: left;">
+                              <input name="showText" id="showText" readonly="true" style="width:60px;text-align:center;border:0px; font-size:11pt; font-weight: bold; font-family: Century Gothic;" value="16:27:39" type="text">
+                          </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td colspan="3"><br>You logged in as&nbsp;VISITOR</td>
+                  </tr>
+                  </tbody></table>
+          </td>
+          <td background="/ServicesFormfiles/square.jpg" height="96">&nbsp;</td>
+          <td width="220" background="/ServicesFormfiles/square.jpg" height="96">
+              <table width="220" border="0">
+                  <tbody><tr>
+                      <td align="center">
+
+
+                          Wednesday, 30 November 2016
+
+
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td><img src="/ServicesFormfiles/JIM_verticalLine.jpg" alt="" width="200" border="0" height="7"></td>
+                  </tr>
+                  <tr>
+                      <td align="center">
+
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td><img src="/ServicesFormfiles/JIM_verticalLine.jpg" alt="" width="200" border="0" height="7"></td>
+                  </tr>
+                  <tr>
+                      <td align="center">&nbsp;
+
+                      </td>
+                  </tr>
+                  </tbody></table>
+          </td>
+      </tr>
+      </tbody></table>
+
+  <div id="boxmaster-b">
+      <div id="boxmain">
+          <div id="boxmenu">
+              <div id="box_menucontentPublic">
+                  <div id="box_menucontainerPublic">
+                      <br>
+                      <li><span id="menu" class="submenu">MACS Application<br></span>
+                          <ul>
+                              <ol id="list" style="text-transform: uppercase">
+                                  <!--- List items will be added dynamically. --->
+                                  <li><span><a href="https://eservices.imi.gov.my/myimms/macs?type=16&amp;lang=en" class="active">MACS Application</a></span></li><li><span><a href="https://eservices.imi.gov.my/myimms/macsreprint?type=16&amp;lang=en">Reprint</a></span></li><li><span><a href="https://eservices.imi.gov.my/myimms/macsmanualtutorial?type=16&amp;lang=en">Process Flow</a></span></li></ol>
+                          </ul>
+                      </li>
+                  </div>
+              </div>
+          </div>
+
+          <div id="box_contentPublic">
+              <div id="msg">
+
+
+
+              </div>
+
+
+
+              {{{body}}}
+
+
+
+          </div>
+      </div>
+  </div>
+
+
   </body>
 </html>
