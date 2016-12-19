@@ -1,0 +1,20 @@
+{
+  "name": "e-services",
+  "scripts": {
+  },
+  "env": {
+    "MONGODB_URI": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
